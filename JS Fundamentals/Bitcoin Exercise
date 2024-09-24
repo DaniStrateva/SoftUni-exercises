@@ -1,1 +1,44 @@
-
+function solve(input) {
+    //total amount purchased bitTot
+    //shift == days
+    //gold in grams
+    //index 0 = first day dig grams etc.
+    let index = 0;
+    let digGrams = input[index];
+    let bitCount = 0;
+    let day = 0;
+    let money = 0;
+    let bitBuy = 11949.16;
+    let dayB = 0;
+    let firstB = 0;
+    for (let i = 1; i <= input.length; i++) {
+      day++;
+  
+      if (day % 3 == 0) {
+        money += digGrams * 0.7 * 67.51;
+      } else {
+        money += digGrams * 67.51;
+      }
+  
+      index++;
+      digGrams = input[index];
+  
+      while (money >= bitBuy) {
+        money -= bitBuy; //buy as many as you can before money is less
+        firstB++;
+        bitCount++;
+        if (firstB == 1) {
+          dayB = index;
+        }
+      }
+    }
+  
+    //let gram = 67.51; //leva
+  
+    console.log(`Bought bitcoins: ${bitCount}`);
+    if (bitCount >= 1) {
+      console.log(`Day of the first purchased bitcoin: ${dayB}`);
+    }
+    //print only if bitcoin bought
+    console.log(`Left money: ${money.toFixed(2)} lv.`);
+  }
