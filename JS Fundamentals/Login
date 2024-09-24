@@ -1,0 +1,26 @@
+function solve(input) {
+  let correctPass = "";
+  let index = 0;
+  let username = input[index];
+  index++;
+  let count = 0;
+
+  for (let i = username.length - 1; i >= 0; i--) {
+    correctPass += username[i];
+  }
+
+  while (input[index] !== correctPass) {
+    count++;
+
+    if (count == 4) {
+      console.log(`User ${username} blocked!`);
+      break;
+    }
+    console.log("Incorrect password. Try again.");
+    index++;
+  }
+  if (input[index] == correctPass) {
+    console.log(`User ${username} logged in.`);
+  }
+
+}
