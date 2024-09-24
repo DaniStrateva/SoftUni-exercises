@@ -1,0 +1,96 @@
+function solve(num, type, day) {
+  let totPrice = 0;
+  if (type == "Students") {
+    if (num >= 30) {
+      switch (day) {
+        case "Friday":
+          totPrice = 8.45 * num * 0.85;
+          break;
+        case "Saturday":
+          totPrice = 9.8 * num * 0.85;
+          break;
+        case "Sunday":
+          totPrice = 10.46 * num * 0.85;
+          break;
+        default:
+          break;
+      }
+    } else if (num < 30) {
+      switch (day) {
+        case "Friday":
+          totPrice = 8.45 * num;
+          break;
+        case "Saturday":
+          totPrice = 9.80 * num;
+          break;
+        case "Sunday":
+          totPrice = 10.46 * num;
+          break;
+        default:
+          break;
+      }
+    }
+  } else if (type == "Business") {
+    if (num >= 100) {
+      switch (day) {
+        case "Friday":
+          totPrice = 10.90 * (num - 10);
+          break;
+        case "Saturday":
+          totPrice = 15.60 * (num - 10);
+          break;
+        case "Sunday":
+          totPrice = 16 * (num - 10);
+          break;
+        default:
+          break;
+      }
+    } else if (num < 100) {
+      switch (day) {
+        case "Friday":
+          totPrice = 10.90 * num;
+          break;
+        case "Saturday":
+          totPrice = 15.60 * num;
+          break;
+        case "Sunday":
+          totPrice = 16 * num;
+          break;
+        default:
+          break;
+      }
+    }
+  } else if (type == "Regular") {
+    if (num >= 10 && num <= 20) {
+      switch (day) {
+        case "Friday":
+          totPrice = 15 * num * 0.95;
+          break;
+        case "Saturday":
+          totPrice = 20 * num * 0.95;
+          break;
+        case "Sunday":
+          totPrice = 22.5 * num * 0.95;
+          break;
+        default:
+          break;
+      }
+    } else {
+      switch (day) {
+        case "Friday":
+          totPrice = 15 * num;
+          break;
+        case "Saturday":
+          totPrice = 20 * num;
+          break;
+        case "Sunday":
+          totPrice = 22.50 * num;
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  console.log(`Total price: ${totPrice.toFixed(2)}`);
+}
