@@ -1,0 +1,28 @@
+function solve(base, increment) {
+  let areaS = 0;
+  let areaM = 0;
+  let areaG = 0;
+  let areaL = 0;
+  let count = 0;
+  if (increment > 0 && base > 0) {
+    for (let i = base; i >= 1; i -= 2) {
+      count++;
+      if (i == 1 || i == 2) {
+        areaG += i * i * increment;
+      }
+      else if (count % 5 == 0) {
+        areaS += (i - 2) * (i - 2) * increment;
+        areaL += i * i * increment - (i - 2) * (i - 2) * increment;
+      }  else {
+        areaS += (i - 2) * (i - 2) * increment;
+        areaM += i * i * increment - (i - 2) * (i - 2) * increment;
+      }
+    }
+  }
+  let height = count * increment;
+  console.log(`Stone required: ${Math.ceil(areaS)}`);
+  console.log(`Marble required: ${Math.ceil(areaM)}`);
+  console.log(`Lapis Lazuli required: ${Math.ceil(areaL)}`);
+  console.log(`Gold required: ${Math.ceil(areaG)}`);
+  console.log(`Final pyramid height: ${Math.floor(height)}`);
+}
