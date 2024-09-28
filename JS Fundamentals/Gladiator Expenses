@@ -1,0 +1,26 @@
+function solve(count, hP, sP, shP, aP) {
+  let lostG = 0; //lost game
+  let helm = 0; //broken helmet count
+  let sword = 0; //broken sword count
+  let shield = 0; //broken shield count
+  let arm = 0; //broken armour count
+
+  for (let i = 0; i < count; i++) {
+    lostG++;
+    if (lostG % 2 == 0 && lostG % 3 == 0) {
+      helm++;
+      sword++;
+      shield++;
+      if (shield > 0 && shield % 2 == 0) {
+        arm++;
+      }
+    } else if (lostG % 2 == 0) {
+      helm++;
+    } else if (lostG % 3 == 0) {
+      sword++;
+    }
+  }
+  let totEx = (helm * hP + sword * sP + shield * shP + arm * aP).toFixed(2);  //total expenses
+
+  console.log(`Gladiator expenses: ${totEx} aureus`);
+}
