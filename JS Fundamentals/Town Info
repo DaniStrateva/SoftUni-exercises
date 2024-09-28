@@ -1,0 +1,27 @@
+function solve(name, pop, area) {  //name, population, area
+  if (name.length < 3) {
+    console.log("Town name must be at least 3 characters!");
+
+    if (pop < 0 && area < 0) {
+      console.log("Population must be a positive number!");
+      console.log("Area must be a positive number!");
+    } else if (pop < 0) {
+      console.log("Population must be a positive number!");
+    } else if (area < 0) {
+      console.log("Area must be a positive number!");
+    }
+  } else {
+    if (pop < 0 && area < 0) {
+      console.log("Population must be a positive number!");
+      console.log("Area must be a positive number!");
+    } else if (pop < 0) {
+      console.log("Population must be a positive number!");
+    } else if (area < 0) {
+      console.log("Area must be a positive number!");
+    } else {
+      console.log(
+        `Town ${name} has population of ${pop} and area ${area} square km.`
+      );
+    }
+  }
+}
